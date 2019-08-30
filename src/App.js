@@ -1,6 +1,7 @@
 import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/database';
+import { Router, Link } from "@reach/router"
 import Login from './components/Login';
 import Welcome from './components/welcome';
 import Shop from './components/shop';
@@ -19,17 +20,12 @@ class App extends React.Component {
     
     render = () => {
 
-        function writeUserData(userId, name, email) {
-            firebase
-                .database()
-                .ref('users/' + userId)
-                .set({username: name, email: email});
-            console.log(userId, name, email);
-        }
         return(
-          <div>
-            <Login/>
-          </div>
+            <Router>
+                <Login path='/login'/>
+                <Welcome path='/'/>
+                <Shop path='/shop'/>
+            </Router>
         );
     }
 }
