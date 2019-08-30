@@ -70,7 +70,9 @@ Submit
     render = () => {
         return (
             <div className='maindiv'>
-                <div className='name'>
+                <div className='image'></div>
+                <div className='subdiv'>
+                    <div className='name'>
                     Name
                 </div>
                 <input id='name' className='formel'></input>
@@ -86,6 +88,7 @@ Submit
                 <button id='log' className="subbtn">
                     Login
                 </button>
+                </div>
             </div>
         );
     }
