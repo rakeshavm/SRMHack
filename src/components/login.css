@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+.logdiv {
+    position: relative;
+    top: 25vh;
+    left: 35vw;
+}
+
+.formel {
+    line-height: 1.5rem;
+    margin-bottom: 5px;
+    width: 25vw;
+    background: black;
+    color: #decba4;
+    border-radius: 10px;
+    border: none;
+    height: 5vh;
+}
+
+.name {
+    margin:2vw;
+    font-size: 1.4em;
+}
+
+.maindiv {
+    background: linear-gradient(to right,#8e0e00,#1f1c18);
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    padding-top: 30vh;
+    color:#decba4;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 1000;
+}
+
+.subbtn{
+    border-radius: 15px;
+    width: 10vw;
+    height: 5vh;
+    color:#decba4;   
+    font-family: 'Poppins', sans-serif;
+    font-weight: 1000;
+    margin-top: 8vh;
+    border: none;
+    background: black;
+    font-size: 1em;
+}
