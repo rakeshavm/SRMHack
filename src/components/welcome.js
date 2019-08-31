@@ -7,8 +7,9 @@ class Welcome extends React.Component{
     render= () => {
         return(
             <div className='weldiv'>
+                <div className='cont'>
                 <div className="welcm">
-                    Welcome to Shoppy
+                    Welcome to Shopsmart
                 </div>
                 <div>
                 <Link to='/shop'>  
@@ -23,6 +24,7 @@ class Welcome extends React.Component{
                     Shop
                 </button>
                 </Link>
+                </div>
                 </div>
             </div>
         )

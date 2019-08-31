@@ -6,14 +6,18 @@ class Shop extends React.Component{
         return(
             <div className="Main">
                 <div className="left">
-                    <h2 className="title">
+                    <div className='quediv'>
+                    <div className="title">
                         Queries
-                    </h2>
+                    </div>
+                    </div>
                 </div>
                 <div className="right">
-                    <h2 className="title">
+                <div className='notdiv'>
+                    <div className="title">
                         Notification
-                    </h2>
+                    </div>
+                    </div>
                 </div>
             </div>
         );

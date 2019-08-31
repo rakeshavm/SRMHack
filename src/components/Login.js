@@ -82,9 +82,13 @@ Submit
                     </div>
                     <input id='phn' className='formel'></input>
                 </div>
+                <div>
+                <div className='icon2'></div>
                 <button id='subm' className="subbtn">
                     Signup
                 </button>
+                </div>
+                <div className='icon1'></div>
                 <button id='log' className="subbtn">
                     Login
                 </button>

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
+
+.qrdiv {
+    background: url('./32280224-doodle-food-icons-seamless-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* width: 100%; */
+    height: 100vh;
+}
+
+.outmess {
+    position: absolute;
+    top: 75vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #202020;
+    /* background: transparent; */
+    width: 90vw;
+    height: 15vh;
+    border-radius: 30px;
+    /* box-shadow: 5px 10px rgb(58, 53, 53); */
+}
+
+.qrcode {
+    position: absolute;
+    top: 15vh;
+    left: 39vw;
+}
+
+.mess {
+    color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    margin: 4vh;
+    font-size: 4vh;
+    text-align: center;
+}
