@@ -16,7 +16,17 @@ class Product extends React.Component{
                                 {this.props.data.category}
                             </div>
                             <div className="content">
-                                Quantity : {this.props.data.qty}
+                                <div className="io icon button">
+                                    <button className="ui button">
+                                        <i className="minus icon"></i>
+                                    </button>
+                                    <button className="ui button">
+                                        {this.props.data.qty}
+                                    </button>
+                                    <button className="ui button">
+                                        <i className="plus icon"></i>
+                                    </button>
+                                </div>
                             </div>
                             <div className="content">
                                 Price : {this.props.data.price}
