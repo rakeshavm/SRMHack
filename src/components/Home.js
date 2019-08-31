@@ -2,6 +2,7 @@ import React from 'react';
 import firebase from 'firebase/app'
 import Category from './category';
 import Product from './Product';
+import { Link } from '@reach/router';
 
 
 class Home extends React.Component {
@@ -16,24 +17,35 @@ class Home extends React.Component {
                 price: null,
                 expd: null,
                 mfgd: null,
-                qty : null
+                qty : null,
+                pos : null,
+                bno : 0
             }]
         }
     }
-
+    componentDidMount(){
+        document.querySelector("#btnview").addEventListener("click",()=>{
+            console.log("hell")
+        })
+    }
+    
     onHandleRender = (obj) => {
         if (obj.click) {
             var fbdata = [];
             firebase.database().ref('shop/').on('value',(snapshot)=>{
+                var i = 0;
                     snapshot.forEach((e)=>{
                         if(e.val()["category"] === obj.name){
+                            i++
                             fbdata.push({
                             category : obj.name,
                             name: e.val()['pname'],
                              price: e.val()['price'],
                              expd: e.val()['expd'],
                              mfgd: e.val()['mfgd'],
-                             qty : 0
+                             pos: e.val()['position'],
+                             qty : 0,
+                             bno : i
                             })}});
                             console.log(fbdata);
             this.setState({
@@ -46,8 +58,13 @@ class Home extends React.Component {
     }
 }
 
+// onCart = (obj) => {
+//     firebase.database().ref('users/').set({
+//         n
+//     });
+// }
 getproduct = (obj)=>{
-    return <Product data={obj}/>
+    return <Product data={obj} func={this.onCart}/>
 }
 
 
@@ -89,21 +106,25 @@ getproduct = (obj)=>{
 
                         </div>
                         <div className="center aligned four wide column">
-                            <div>
-                                <div
+                        <Link to='/cart'><div>
+                                <div id='btnview'
                                     className="ui vertical animated blue button"
                                     tabIndex="0"
                                     style={{
                                     width: '7vw'
                                 }}>
+                                    
                                     <div className="hidden content">
                                         <strong>View Cart</strong>
                                     </div>
+                                    
                                     <div className="visible content">
                                         <i className="shop icon"></i>
                                     </div>
                                 </div>
+                               
                             </div>
+                            </Link>
                         </div>
                     </div>
                     <div className="row">
@@ -191,8 +212,9 @@ getproduct = (obj)=>{
                             </div>
                         </div>
                         <div className="center aligned four wide column">
+                            <Link to='/cart'>
                         <div>
-                            <div
+                            <div id='btnview'
                                 className="ui vertical animated blue button"
                                 tabIndex="0"
                                 style={{
@@ -206,6 +228,7 @@ getproduct = (obj)=>{
                                 </div>
                             </div>
                         </div>
+                        </Link>
                     </div>
                     </div>
                     

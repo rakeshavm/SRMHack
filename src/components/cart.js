@@ -10,7 +10,7 @@ class Cart extends React.Component {
                     <div className="ui segments">
                         <h3 className="header">Your Order</h3>
                         <div className="ui segment">
-                            <Product data={{category:'Beauty',name:'Shampoo',price:'40',qty:'10'}}/>
+                            <Product data={{category:'Kitchen',name:'Vanish',price:'420',qty:'3',pos:'H'}}/>
                         </div>
                         <div className="ui segment">
                             <button className="ui button">
