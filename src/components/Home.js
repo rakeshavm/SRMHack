@@ -1,6 +1,8 @@
 import React from 'react';
+import firebase from 'firebase/app'
 import Category from './category';
 import Product from './Product';
+
 
 class Home extends React.Component {
     constructor(props) {
@@ -8,30 +10,47 @@ class Home extends React.Component {
         this.state = {
             flag: false,
             name: null,
-            data: {
+            data: [{
                 category: null,
                 name: null,
-                qty: null,
-                price: Number
-            }
+                price: null,
+                expd: null,
+                mfgd: null,
+                qty : null
+            }]
         }
     }
 
     onHandleRender = (obj) => {
         if (obj.click) {
+            var fbdata = [];
+            firebase.database().ref('shop/').on('value',(snapshot)=>{
+                    snapshot.forEach((e)=>{
+                        if(e.val()["category"] === obj.name){
+                            fbdata.push({
+                            category : obj.name,
+                            name: e.val()['pname'],
+                             price: e.val()['price'],
+                             expd: e.val()['expd'],
+                             mfgd: e.val()['mfgd'],
+                             qty : 0
+                            })}});
+                            console.log(fbdata);
             this.setState({
                 flag: obj.click,
-                name: obj.name,
-                data: {
-                    category: obj.name,
-                    name: "Shampoo",
-                    qty: 20,
-                    price: 50
-                }
-            })
-        }
+                name: obj.category,
+                data: fbdata
+            });
+        })
 
     }
+}
+
+getproduct = (obj)=>{
+    return <Product data={obj}/>
+}
+
+
 
     render = () => {
         if (!this.state.flag) {
@@ -64,7 +83,7 @@ class Home extends React.Component {
                             <div className="ui horizontal segments">
                                 <Category name={'Beauty'} render={this.onHandleRender}/>
                                 <Category name={'Dairy'} render={this.onHandleRender}/>
-                                <Category name={'Fruits & Vegetables'} render={this.onHandleRender}/>
+                                <Category name={'FruitsVegetables'} render={this.onHandleRender}/>
                                 <Category name={'Kitchen'} render={this.onHandleRender}/>
                             </div>
 
@@ -91,9 +110,9 @@ class Home extends React.Component {
                         <div className="center aligned twelve wide column">
                             <div className="ui horizontal segments">
                                 <Category name={'Pets'} render={this.onHandleRender}/>
-                                <Category name={'Eggs & Meat'} render={this.onHandleRender}/>
-                                <Category name={'Baby Care'} render={this.onHandleRender}/>
-                                <Category name={'Food Grains'} render={this.onHandleRender}/>
+                                <Category name={'EggsMeat'} render={this.onHandleRender}/>
+                                <Category name={'BabyCare'} render={this.onHandleRender}/>
+                                <Category name={'FoodGrains'} render={this.onHandleRender}/>
                             </div>
                         </div>
                         <div className="center aligned four wide column">
@@ -103,7 +122,7 @@ class Home extends React.Component {
                                 padding: "1vw"
                             }}>
                                 <img
-                                    src={require("../img/query.svg")}
+                                    src={require("./img/query.svg")}
                                     alt="dairy"
                                     style={{
                                     width: "2vw"
@@ -167,10 +186,11 @@ class Home extends React.Component {
 
                     <div className="row">
                         <div className="center aligned twelve wide column">
-                            <Product data={this.state.data}/>
+                            <div className="ui segments">
+                                {this.state.data.map(obj=>this.getproduct(obj))}
+                            </div>
                         </div>
-                    </div>
-                    <div className="center aligned four wide column">
+                        <div className="center aligned four wide column">
                         <div>
                             <div
                                 className="ui vertical animated blue button"
@@ -187,6 +207,8 @@ class Home extends React.Component {
                             </div>
                         </div>
                     </div>
+                    </div>
+                    
                 </div>
             );
         }

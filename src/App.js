@@ -6,7 +6,8 @@ import Login from './components/Login';
 import Welcome from './components/welcome';
 import Shop from './components/shop';
 import Qr from './components/qr';
-import Cart from './components/cart'
+import Cart from './components/cart';
+import Home from './components/Home';
 firebase.initializeApp({
     apiKey: 'AIzaSyBLRGzdwowPzZ807mAztoFX6Fu4Z6RJS4s',
     authDomain: 'support-shops.firebaseapp.com',
@@ -28,6 +29,7 @@ class App extends React.Component {
                 <Shop path='/shop'/>
                 <Qr path='/qr'/>
                 <Cart path='/cart'/>
+                <Home path='/home'/>
             </Router>
         );
     }

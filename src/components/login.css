@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
 
-body {
-    /* overflow-y: hidden; */
-}
-
 .logdiv {
     position: relative;
     top: 25vh;

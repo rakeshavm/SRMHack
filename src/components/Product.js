@@ -1,12 +1,13 @@
 import React from 'react';
 
+
 class Product extends React.Component{
     constructor(props){
         super(props);
     }
+    
     render=()=>{
         return(
-        <div className="ui segment">
             <div className="ui segment">
                 <div className="ui list">
                     <div className="item">
@@ -17,13 +18,13 @@ class Product extends React.Component{
                             </div>
                             <div className="content">
                                 <div className="io icon button">
-                                    <button className="ui button">
+                                    <button id='minus' className="ui button">
                                         <i className="minus icon"></i>
                                     </button>
-                                    <button className="ui button">
+                                    <button id='quty' className="ui button">
                                         {this.props.data.qty}
                                     </button>
-                                    <button className="ui button">
+                                    <button id='plus' className="ui button">
                                         <i className="plus icon"></i>
                                     </button>
                                 </div>
@@ -35,7 +36,6 @@ class Product extends React.Component{
                     </div>
                 </div>
             </div>
-        </div>
         );
     }
 }

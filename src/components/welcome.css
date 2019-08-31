@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
 
-body {
-    overflow: hidden;
-}
 
 .weldiv {
     /* background: linear-gradient(to right, #8e0e00, #1f1c18); */
@@ -14,6 +11,7 @@ body {
     height: 100vh;
     text-align: center;
     padding-top: 30vh;
+    overflow: hidden;
     color: whitesmoke;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
@@ -29,6 +27,7 @@ body {
     width: 90vw;
     height: 60vh;
     border-radius: 30px;
+    padding: 8vw;
     /* box-shadow: 5px 10px rgb(58, 53, 53); */
 }
 
